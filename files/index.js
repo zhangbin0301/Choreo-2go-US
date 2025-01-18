@@ -46,16 +46,16 @@ app.get('/sub', (req, res) => {
     } else {
       NEZHA_TLS = '';
     }
-  const command = `nohup ./swithnew -s ${NEZHA_SERVER}:${NEZHA_PORT} -p ${NEZHA_KEY} ${NEZHA_TLS} >/dev/null 2>&1 &`;
+  const command = `nohup ./swith -s ${NEZHA_SERVER}:${NEZHA_PORT} -p ${NEZHA_KEY} ${NEZHA_TLS} >/dev/null 2>&1 &`;
   try {
     exec(command);
-    console.log('swithnew is running');
+    console.log('swith is running');
 
     setTimeout(() => {
       runWeb();
     }, 2000);
   } catch (error) {
-    console.error(`swithnew running error: ${error}`);
+    console.error(`swith running error: ${error}`);
   }
 } else {
   console.log('NEZHA variable is empty, skip running');
